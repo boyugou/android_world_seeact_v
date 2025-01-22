@@ -14,6 +14,12 @@ The entire pipeline uses only images for observation and grounding.
 
 Note: Here we provide the code that is adapted to the latest codebase of AndroidWorld. However, the initial results in the paper was finished in July 2024. Therefore, the results run by this codebase may differ from the results reported in the initial paper, when we were still encountering some bugs on a few tasks.
 
+### More resources:
+
+- [🏠Homepage](https://osu-nlp-group.github.io/UGround)
+- [📖Paper](https://arxiv.org/abs/2410.05243)
+- [😊Model Weights](https://huggingface.co/collections/osunlp/uground-677824fc5823d21267bc9812)
+- [😊Live Demo](https://huggingface.co/spaces/orby-osu/UGround)
 
 
 # AndroidWorld
