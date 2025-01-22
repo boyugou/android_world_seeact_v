@@ -115,7 +115,7 @@ _N_TASK_COMBINATIONS = flags.DEFINE_integer(
 
 _CHECKPOINT_DIR = flags.DEFINE_string(
     'checkpoint_dir',
-    '',
+    'try_1st_run',  # Default checkpoint directory.
     'The directory to save checkpoints and resume evaluation from. If the'
     ' directory contains existing checkpoint files, evaluation will resume from'
     ' the latest checkpoint. If the directory is empty or does not exist, a new'
@@ -175,7 +175,7 @@ def _get_agent(
   elif _AGENT_NAME.value == 't3a_gpt4':
     agent = t3a.T3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
   elif _AGENT_NAME.value == 'seeact_v':
-    agent = seeact_v.SeeAct_V(env, infer.Gpt4Wrapper('gpt-4o'))
+    agent = seeact_v.SeeAct_V(env, infer.Gpt4Wrapper('gpt-4o'),grounding_model_name="osunlp/UGround-V1-7B")
   elif _AGENT_NAME.value == 'm3a_gpt4v':
     agent = m3a.M3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
   # SeeAct.
