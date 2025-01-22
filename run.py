@@ -36,6 +36,7 @@ from android_world.agents import m3a
 from android_world.agents import random_agent
 from android_world.agents import seeact
 from android_world.agents import t3a
+from android_world.agents import seeact_v
 from android_world.env import env_launcher
 from android_world.env import interface
 
@@ -128,7 +129,7 @@ _OUTPUT_PATH = flags.DEFINE_string(
 )
 
 # Agent specific.
-_AGENT_NAME = flags.DEFINE_string('agent_name', 'm3a_gpt4v', help='Agent name.')
+_AGENT_NAME = flags.DEFINE_string('agent_name', 'seeact_v', help='Agent name.')
 
 _FIXED_TASK_SEED = flags.DEFINE_boolean(
     'fixed_task_seed',
@@ -173,6 +174,8 @@ def _get_agent(
   # GPT.
   elif _AGENT_NAME.value == 't3a_gpt4':
     agent = t3a.T3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
+  elif _AGENT_NAME.value == 'seeact_v':
+    agent = seeact_v.SeeAct_V(env, infer.Gpt4Wrapper('gpt-4o'))
   elif _AGENT_NAME.value == 'm3a_gpt4v':
     agent = m3a.M3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
   # SeeAct.

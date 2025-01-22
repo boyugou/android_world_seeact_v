@@ -43,25 +43,34 @@ def execute_adb_action(
     idx = action.index
     x = action.x
     y = action.y
-    if idx is not None:
-      if idx < 0 or idx >= len(screen_elements):
-        raise ValueError(
-            f'Invalid element index: {idx}, must be between 0 and'
-            f' {len(screen_elements)-1}.'
-        )
-      element = screen_elements[idx]
-      if element.bbox_pixels is None:
-        raise ValueError('Bbox is not present on element.')
-      x, y = element.bbox_pixels.center
-      x, y = int(x), int(y)
-      if action.action_type == 'click':
-        adb_utils.tap_screen(x, y, env)
-      elif action.action_type == 'double_tap':
-        adb_utils.double_tap(x, y, env)
-      else:
-        adb_utils.long_press(x, y, env)
-    elif x is not None and y is not None:
-      x, y = int(x), int(y)
+
+
+    # if idx is not None:
+    #   if idx < 0 or idx >= len(screen_elements):
+    #     raise ValueError(
+    #         f'Invalid element index: {idx}, must be between 0 and'
+    #         f' {len(screen_elements)-1}.'
+    #     )
+    #   element = screen_elements[idx]
+    #   if element.bbox_pixels is None:
+    #     raise ValueError('Bbox is not present on element.')
+    #   x, y = element.bbox_pixels.center
+    #   x, y = int(x), int(y)
+    #   if action.action_type == 'click':
+    #     adb_utils.tap_screen(x, y, env)
+    #   elif action.action_type == 'double_tap':
+    #     adb_utils.double_tap(x, y, env)
+    #   else:
+    #     adb_utils.long_press(x, y, env)
+
+
+
+    if x is not None and y is not None:
+
+      print(f"Correctly get into CLICK XY {x,y}")
+      x = round(x)
+      y = round(y)
+
       if action.action_type == 'click':
         adb_utils.tap_screen(x, y, env)
       elif action.action_type == 'double_tap':

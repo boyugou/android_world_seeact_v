@@ -1,3 +1,21 @@
+# AndroidWorld-SeeAct-V
+
+This repo contains the code for the SeeAct-V agent implementation for AndroidWorld. 
+
+For the modular design of SeeAct-V, please refer to our paper [UGround: Navigating the Digital World as Humans Do:
+Universal Visual Grounding for GUI Agents](https://osu-nlp-group.github.io/UGround/).
+
+Simply put, SeeAct-V involves two steps and models: 
+1. a planner (e.g., GPT-4o) predicts the next action, and
+2. a GUI visual grounding model (e.g., UGround) provides precise action coordinates (if the action involves coordinates) .
+
+The entire pipeline uses only images for observation and grounding.
+
+
+Note: Here we provide the code that is adapted to the latest codebase of AndroidWorld. However, the initial results in the paper was finished in July 2024. Therefore, the results run by this codebase may differ from the results reported in the initial paper, when we were still encountering some bugs on a few tasks.
+
+
+
 # AndroidWorld
 
 [![Unittests](https://github.com/google-research/android_world/actions/workflows/pytest.yml/badge.svg)](https://github.com/google-research/android_world/actions/workflows/pytest.yml)
@@ -42,8 +60,8 @@ See demo videos on our [website](https://google-research.github.io/android_world
     ```bash
     # Typically it's located in ~/Android/Sdk/emulator/emulator or
     # ~/Library/Android/sdk/emulator/emulator
-    EMULATOR_NAME=AndroidWorldAvd # From previous step
-    ~/Library/Android/sdk/emulator/emulator -avd $EMULATOR_NAME -no-snapshot -grpc 8554
+    EMULATOR_NAME=avd # From previous step
+    ~/Library/Android/sdk/emulator/emulator -avd avd -no-snapshot -grpc 8554
     ```
 
 1. [Optional] It's recommended to use `conda`, which you can download [here](https://docs.anaconda.com/free/miniconda/miniconda-install/).
@@ -103,12 +121,11 @@ Note: **Task Step Limits Update**
 As of 11/18/2024, the max_steps/step_budget for each task in AndroidWorld have been updated to approximately **2x the human average completion time**. This adjustment ensures agents have sufficient time to complete tasks, while also reducing overhead of running thebenchmark. [Here](https://docs.google.com/spreadsheets/d/1KF-vY0Uy47o0mnursvs-HmS6hreU6U3rPrAjgEfjMK4/edit?usp=sharing) are the per-task updates.
 
 ```bash
-python run.py \
-  --suite_family=android_world \
-  --agent_name=t3a_gpt4 \
-  --perform_emulator_setup \
-  --tasks=ContactsAddContact,ClockStopWatchRunning \  # Optional: Just run on a subset.
+python run.py --suite_family=android_world --agent_name=seeact_v --perform_emulator_setup 
 ```
+
+
+
 
 The first time you run this script, you must install the necessary apps and set permissions by specifying `--perform_emulator_setup`. This is a one-time setup. It may take several minutes depending on the connection speed.
 

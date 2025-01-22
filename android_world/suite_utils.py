@@ -485,7 +485,18 @@ def _allocate_step_budget(task_complexity: float) -> int:
   """
   if task_complexity is None:
     raise ValueError('Task complexity must be provided.')
-  return int(10 * (task_complexity))
+
+  length_step = 0
+  if task_complexity == 0:
+      length_step = 15
+  elif task_complexity == 1:
+      length_step = 30
+  elif task_complexity == 2:
+      length_step = 50
+  else:
+        length_step = 60
+  print("ALLOCATED MAX STEPS: ", length_step)
+  return length_step
 
 
 def _display_message(

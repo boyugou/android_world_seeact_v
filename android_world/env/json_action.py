@@ -93,6 +93,7 @@ class JSONAction:
 
   action_type: Optional[str] = None
   index: Optional[str | int] = None
+  element: Optional[str] = None
   x: Optional[int] = None
   y: Optional[int] = None
   text: Optional[str] = None
@@ -104,10 +105,17 @@ class JSONAction:
   def __post_init__(self):
     if self.action_type not in _ACTION_TYPES:
       raise ValueError(f'Invalid action type: {self.action_type}')
-    if self.index is not None:
-      self.index = int(self.index)
+    # if self.index is not None:
+    #   self.index = int(self.index)
+    #   if self.x is not None or self.y is not None:
+    #     raise ValueError('Either an index or a <x, y> should be provided.')
+
+
+    if self.element is not None:
+      self.element = str(self.element)
       if self.x is not None or self.y is not None:
         raise ValueError('Either an index or a <x, y> should be provided.')
+
     if self.direction and self.direction not in _SCROLL_DIRECTIONS:
       raise ValueError(f'Invalid scroll direction: {self.direction}')
     if self.text is not None and not isinstance(self.text, str):
@@ -166,7 +174,6 @@ def _compare_actions(a: JSONAction, b: JSONAction) -> bool:
       app_name_match
       and text_match
       and a.action_type == b.action_type
-      and a.index == b.index
       and a.x == b.x
       and a.y == b.y
       and a.keycode == b.keycode

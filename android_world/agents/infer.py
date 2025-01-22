@@ -306,7 +306,7 @@ class Gpt4Wrapper(LlmWrapper, MultimodalLlmWrapper):
       payload['messages'][0]['content'].append({
           'type': 'image_url',
           'image_url': {
-              'url': f'data:image/jpeg;base64,{self.encode_image(image)}'
+              'url': f'data:image/jpeg;base64,{self.encode_image(image)}',"detail": "high"
           },
       })
 

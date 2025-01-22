@@ -29,7 +29,7 @@ from absl import flags
 from absl import logging
 from android_world import registry
 from android_world.agents import infer
-from android_world.agents import t3a
+from android_world.agents import seeact_v
 from android_world.env import env_launcher
 from android_world.task_evals import task_eval
 
@@ -104,11 +104,11 @@ def _main() -> None:
   params = task_type.generate_random_params()
   task = task_type(params)
   task.initialize_task(env)
-  agent = t3a.T3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
+  agent = seeact_v.SeeAct_V(env, infer.Gpt4Wrapper('gpt-4o'))
 
   print('Goal: ' + str(task.goal))
   is_done = False
-  for _ in range(task.complexity * 10):
+  for _ in range(50): # Changed to 50 steps
     response = agent.step(task.goal)
     if response.done:
       is_done = True
