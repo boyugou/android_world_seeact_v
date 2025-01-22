@@ -11,6 +11,9 @@ Simply put, SeeAct-V involves two steps and models:
 
 The entire pipeline uses only images for observation and grounding.
 
+![image](https://github.com/user-attachments/assets/e475b293-79ed-412d-9062-b76793e61d0d)
+
+
 
 Note: Here we provide the code that is adapted to the latest codebase of AndroidWorld. However, the initial results in the paper was finished in July 2024. Therefore, the results run by this codebase may differ from the results reported in the initial paper, when we were still encountering some bugs on a few tasks.
 
