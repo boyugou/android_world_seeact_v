@@ -2,7 +2,7 @@
 
 This repo contains the code for the implementatioin of SeeAct-V agents for AndroidWorld. 
 
-For the modular design of SeeAct-V, please refer to our paper [UGround: Navigating the Digital World as Humans Do:
+Regarding the modular system SeeAct-V, please refer to our paper [UGround: Navigating the Digital World as Humans Do:
 Universal Visual Grounding for GUI Agents](https://osu-nlp-group.github.io/UGround/).
 
 Simply put, SeeAct-V involves two steps and models: 
