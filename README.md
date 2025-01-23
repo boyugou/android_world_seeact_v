@@ -15,7 +15,22 @@ The entire pipeline uses only images for observation and grounding.
 
 Note: Here we provide the code that is adapted to the latest codebase of AndroidWorld. However, the initial results in the paper was finished in July 2024. Therefore, the results run by this codebase may differ from the results reported in the initial paper, when we were still encountering some bugs on a few tasks.
 
-### More Resources of UGround:
+### Experiment Results:
+
+
+
+| Input                | Planner | Grounding                | Task Success Rate |
+| -------------------- | ------- | ------------------------ | ----------------- |
+| Text                 | GPT-4   | Choice                   | 30.6              |
+| Image + Text         | GPT-4   | SoM                      | 25.4              |
+| **SeeAct-V (Image)** | GPT-4   | UGround                  | 31.0              |
+| **SeeAct-V (Image)** | GPT-4o  | UGround                  | **32.8**          |
+| **SeeAct-V (Image)** | GPT-4o  | UGround-V1-7B (Qwen2-VL) | **44.0**          |
+
+Also, see more results in AndroidWorld [Leaderboard](https://docs.google.com/spreadsheets/d/1cchzP9dlTZ3WXQTfYNhh3avxoLipqHN75v1Tb86uhHo/edit?gid=0#gid=0).
+
+
+### More Resources of UGround and SeeAct-V:
 
 - [🏠Homepage](https://osu-nlp-group.github.io/UGround)
 - [📖Paper](https://arxiv.org/abs/2410.05243)
