@@ -27,7 +27,7 @@ Note: Here we provide the code that is adapted to the latest codebase of Android
 | **SeeAct-V (Image)** | GPT-4o  | UGround                  | **32.8**          |
 | **SeeAct-V (Image)** | GPT-4o  | UGround-V1-7B (Qwen2-VL) | **44.0**          |
 
-The trajectories of the results have been uploaded to: https://huggingface.co/datasets/BoyuNLP/Misc/tree/main/Experiments/AndroidWorld
+The trajectories are available [here](https://huggingface.co/datasets/BoyuNLP/Misc/tree/main/Experiments/AndroidWorld)
 
 Also, see more results in AndroidWorld [Leaderboard](https://docs.google.com/spreadsheets/d/1cchzP9dlTZ3WXQTfYNhh3avxoLipqHN75v1Tb86uhHo/edit?gid=0#gid=0).
 
